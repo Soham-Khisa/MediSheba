@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Log In or Sign Up
+        </title>
+        <style>
+            div{
+                font-size: 90px;
+                font-weight: 800;
+                font-family: sans-serif;
+                text-align:center;
+                color:darkred;
+            }
+            .block {
+                width: 25%;
+                height:40px;
+                text-align: center;
+            }
+            h1{
+                font-size: 30px;
+                font-weight: 800;
+                font-family: sans-serif;
+                text-align:center;
+                color:darkred;
+            }
+        </style>
+    </head>
+    <body>
+        <div>Welcome</div>
+        <h1>Sign In or <a href="#">Sign Up</a></h1>
+        <form>
+            <h1>Email:
+            <label for="email" class="block"></label><br>
+            <input type="text" id="email" name="email" class="block"></h1><br>
+            <h1>Password:
+            <label for="pass"></label><br>
+            <input type="password" id="pass" name="pass" class="block"></h1><br>
+            <h1>Usertype:
+            <label for="User"></label><br>
+            <select id="User" name="User" class="block">
+                <option value="Doctor" class="block">Doctor</option>
+                <option value="User" class="block">User</option>
+                <option value="HospitalAdmin" class="block">Hospital Admin</option>
+                <option value="MediShopAdmin" class="block">MediShop Admin</option>
+
+            </select>
+            </h1><br>
+        </form>
+        <h1>
+            <button class="block">Submit</button>
+        </h1>
+    </body>
+</html>
