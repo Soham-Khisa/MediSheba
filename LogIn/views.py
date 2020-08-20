@@ -6,3 +6,7 @@ from django.shortcuts import render
 
 def login(request):
     return render(request, "LogInOrSignUp.html")
+
+
+def submit(request):
+    return render(request, "Home.html")
