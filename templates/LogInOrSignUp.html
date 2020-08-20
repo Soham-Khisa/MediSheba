@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 
 <html>
-
     <head>
+
+
         <title>
             Log In or Sign Up
         </title>
@@ -26,12 +27,21 @@
                 text-align:center;
                 color:darkred;
             }
+            button{
+                transition-duration: .4s;
+                border-radius: 4px;
+            }
+            button:hover{
+                background-color: darkred;
+                color: white;
+            }
+
         </style>
     </head>
     <body>
 
         <div>Welcome</div>
-        <h1>Sign In or <a href="#">Sign Up</a></h1>
+        <h1>Sign In or  <a href="{% url 'signup' %}">Sign Up</a> </h1>
 
 
         <form action="submit">

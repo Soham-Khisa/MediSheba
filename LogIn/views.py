@@ -9,4 +9,18 @@ def login(request):
 
 
 def submit(request):
+    email = request.GET['email']
+    password = request.GET['pass']
+    user = request.GET['User']
+
+    print("EMAIL: " + email)
+    print("PASS: " + password)
+    print("User Type: " + user)
+
+    # TODO: connect database and verify
+
     return render(request, "Home.html")
+
+
+def signup(request):
+    return render(request, "SignUp.html")
