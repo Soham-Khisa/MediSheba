@@ -18,8 +18,13 @@ def submit(request):
     print("User Type: " + user)
 
     # TODO: connect database and verify
-
-    return render(request, "Home.html")
+    if user == "Doctor":
+        return render(request, "DoctorHome.html", {'user': email})
+    elif user == "User":
+        return render(request, "UserHome.html")
+    elif user=="MediShopAdmin":
+        return render(request,"MediShopAdminHome.html")
+    return render(request,"HospitalAdminHome.html")
 
 
 def signup(request):
