@@ -44,7 +44,8 @@
         <h1>Sign In or  <a href="{% url 'signup' %}">Sign Up</a> </h1>
 
 
-        <form action="submit">
+        <form action="submit" method="post">
+            {% csrf_token %}
             <h1>Email:
             <label for="email" class="block"></label><br>
             <input type="text" id="email" name="email" class="block"></h1><br>

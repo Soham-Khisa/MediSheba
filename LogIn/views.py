@@ -9,9 +9,9 @@ def login(request):
 
 
 def submit(request):
-    email = request.GET['email']
-    password = request.GET['pass']
-    user = request.GET['User']
+    email = request.POST['email']
+    password = request.POST['pass']
+    user = request.POST['User']
 
     print("EMAIL: " + email)
     print("PASS: " + password)
@@ -22,9 +22,9 @@ def submit(request):
         return render(request, "DoctorHome.html", {'user': email})
     elif user == "User":
         return render(request, "UserHome.html")
-    elif user=="MediShopAdmin":
-        return render(request,"MediShopAdminHome.html")
-    return render(request,"HospitalAdminHome.html")
+    elif user == "MediShopAdmin":
+        return render(request, "MediShopAdminHome.html")
+    return render(request, "HospitalAdminHome.html")
 
 
 def signup(request):
