@@ -6,5 +6,9 @@
 </head>
 <body>
 <h2>This is users homepage</h2>
+<form action="seeDoc" method="post">
+    {% csrf_token %}
+    <button type="submit">See Doctors</button>
+</form>
 </body>
 </html>
