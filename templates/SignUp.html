@@ -1,10 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Sign Up</title>
-</head>
-<body>
-<h1>This is the Sign Up Page</h1>
-</body>
+<html>
+    <head>
+        <title>
+            front page
+        </title>
+        <style>
+            div{
+                font-size: 100px;
+                font-weight: 800;
+                font-family: sans-serif;
+                text-align:center;
+                color:green;
+            }
+            .block {
+                width: 25%;
+                height:50px;
+                text-align: center;
+            }
+            h1{
+                font-size: 30px;
+                font-weight: 800;
+                font-family: sans-serif;
+                text-align:center;
+                color:green;
+            }
+        </style>
+    </head>
+    <body>
+        <div>Welcome</div>
+        <h1>Sign Up Here!</h1>
+        <form>
+            <h1>Usertype:
+            <label for="User"></label>
+            <select id="User" name="User" class="block">
+                <option value="a" >General User</option>
+                <option value="b" >Doctor</option>
+                <option value="c" >Hospital Admin</option>
+                <option value="d" >Pharmacy Manager</option>
+                <option value="e" >Blood Bank Admin</option>
+            </select>
+            </h1><br>
+            <h1>First Name:
+            <label for="fname" class="block"></label>
+            <input type="text" id="fname" name="fname" class="block"></h1><br>
+            <h1>Last Name:
+            <label for="lname" class="block"></label>
+            <input type="text" id="lname" name="lname" class="block"></h1><br>
+            <h1>Email:
+            <label for="email" class="block"></label>
+            <input type="text" id="email" name="email" class="block"></h1><br>
+            <h1>Phone No.
+            <label for="phone" class="block"></label>
+            <input type="number" id="phone" name="phone" class="block"></h1><br>
+            <h1>Password:
+            <label for="pass"></label>
+            <input type="password" id="pass" name="pass" class="block"></h1><br>
+            <h1>Confirm Password:
+            <label for="cpass"></label>
+            <input type="password" id="cpass" name="cpass" class="block"></h1><br>
+        </form>
+        <h1>
+            <button class="block">Submit</button>
+        </h1>
+    </body>
 </html>
