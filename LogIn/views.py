@@ -23,7 +23,7 @@ def submit(request):
     elif user == "User":
         return render(request, "UserHome.html")
     elif user == "MediShopAdmin":
-        return render(request, "MediShopAdminHome.html")
+        return render(request, "PharmacyManagerHome.html")
     return render(request, "HospitalAdminHome.html")
 
 
