@@ -1,4 +1,6 @@
+import cx_Oracle
 from django.shortcuts import render
+import random
 
 
 # Create your views here.
@@ -11,6 +13,21 @@ def signupSubmit(request):
     phone = request.POST['phone']
     password = request.POST['pass']
     confirm = request.POST['cpass']
+
+    if usertype == 'doctor':
+        dsn_tns = cx_Oracle.makedsn('localhost', '1521', service_name='ORCL')
+        conn = cx_Oracle.connect(user='MEDI_SHEBA', password='1234', dsn=dsn_tns)
+        c = conn.cursor()
+        num = random.randrange(0, 1000, 2)
+        statement = "INSERT INTO MEDI_SHEBA.DOCTORS (DOCTOR_ID, FIRST_NAME, LAST_NAME, PHONE) VALUES (" + str(
+            num) + ", " + "\'" + firstname + "\', " + "\'" + lastname + "\', " + "\'" + phone + "\'" + ")"
+        c.execute(statement)
+        conn.commit()
+
+        print(statement)
+
+        print("SUCCESS")
+
     print(usertype)
     print(firstname)
     print(lastname)
@@ -28,4 +45,4 @@ def signupSubmit(request):
     elif usertype == 'pharmacyManager':
         return render(request, "PharmacyManagerHome.html")
     elif usertype == 'bloodbankAdmin':
-        return render(request,"BloodbankAdminHome.html")
+        return render(request, "BloodbankAdminHome.html")
