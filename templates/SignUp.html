@@ -2,11 +2,11 @@
 <html>
     <head>
         <title>
-            front page
+            Sign Up
         </title>
         <style>
             div{
-                font-size: 100px;
+                font-size: 80px;
                 font-weight: 800;
                 font-family: sans-serif;
                 text-align:center;
@@ -18,7 +18,7 @@
                 text-align: center;
             }
             h1{
-                font-size: 30px;
+                font-size: 20px;
                 font-weight: 800;
                 font-family: sans-serif;
                 text-align:center;
@@ -29,7 +29,8 @@
     <body>
         <div>Welcome</div>
         <h1>Sign Up Here!</h1>
-        <form>
+        <form action="signupSubmit" method="post">
+            {% csrf_token %}
             <h1>Usertype:
             <label for="User"></label>
             <select id="User" name="User" class="block">
@@ -58,9 +59,10 @@
             <h1>Confirm Password:
             <label for="cpass"></label>
             <input type="password" id="cpass" name="cpass" class="block"></h1><br>
+            <h1>
+            <button class="block" type="submit">Submit</button>
+            </h1>
         </form>
-        <h1>
-            <button class="block">Submit</button>
-        </h1>
+
     </body>
 </html>
