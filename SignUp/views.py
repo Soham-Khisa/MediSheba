@@ -1,6 +1,7 @@
 import cx_Oracle
 from django.shortcuts import render
 import random
+from django.contrib import messages
 
 
 # Create your views here.
@@ -27,6 +28,7 @@ def signupSubmit(request):
         print(statement)
 
         print("SUCCESS INSERTING INTO DOCTORS")
+        return render(request, "DoctorHome.html")
 
     elif usertype == 'user':
         dsn_tns = cx_Oracle.makedsn('localhost', '1521', service_name='ORCL')
@@ -38,22 +40,13 @@ def signupSubmit(request):
         conn.commit()
         print(statement)
         print("SUCCESS INSERTING INTO USERS")
-
-    print(usertype)
-    print(firstname)
-    print(lastname)
-    print(email)
-    print(phone)
-    print(password)
-    print(confirm)
-
-    if usertype == 'user':
         return render(request, "UserHome.html")
-    elif usertype == 'doctor':
-        return render(request, "DoctorHome.html")
+
     elif usertype == 'hospitalAdmin':
         return render(request, "HospitalAdminHome.html")
+
     elif usertype == 'pharmacyManager':
         return render(request, "PharmacyManagerHome.html")
+
     elif usertype == 'bloodbankAdmin':
         return render(request, "BloodbankAdminHome.html")
