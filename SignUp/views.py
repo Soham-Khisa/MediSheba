@@ -26,7 +26,18 @@ def signupSubmit(request):
 
         print(statement)
 
-        print("SUCCESS")
+        print("SUCCESS INSERTING INTO DOCTORS")
+
+    elif usertype == 'user':
+        dsn_tns = cx_Oracle.makedsn('localhost', '1521', service_name='ORCL')
+        conn = cx_Oracle.connect(user='MEDI_SHEBA', password='1234', dsn=dsn_tns)
+        c = conn.cursor()
+        statement = "INSERT INTO MEDI_SHEBA.USERS(FIRST_NAME, LAST_NAME, EMAIL, PHONE) VALUES (" + "\'" + firstname + \
+                    "\', " + "\'" + lastname + "\'," + "\'" + email + "\', " + "\'" + phone + "\'" + ")"
+        c.execute(statement)
+        conn.commit()
+        print(statement)
+        print("SUCCESS INSERTING INTO USERS")
 
     print(usertype)
     print(firstname)
