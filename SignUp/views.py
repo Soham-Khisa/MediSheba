@@ -20,8 +20,8 @@ def signupSubmit(request):
         conn = cx_Oracle.connect(user='MEDI_SHEBA', password='1234', dsn=dsn_tns)
         c = conn.cursor()
         num = random.randrange(0, 1000, 2)
-        statement = "INSERT INTO MEDI_SHEBA.DOCTORS (DOCTOR_ID, FIRST_NAME, LAST_NAME, PHONE) VALUES (" + str(
-            num) + ", " + "\'" + firstname + "\', " + "\'" + lastname + "\', " + "\'" + phone + "\'" + ")"
+        statement = "INSERT INTO MEDI_SHEBA.DOCTORS(FIRST_NAME, LAST_NAME, EMAIL, PHONE) VALUES (" + "\'" + firstname + \
+                    "\', " + "\'" + lastname + "\'," + "\'" + email + "\', " + "\'" + phone + "\'" + ")"
         c.execute(statement)
         conn.commit()
 
