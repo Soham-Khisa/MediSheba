@@ -28,8 +28,10 @@ def submit(request):
                     "AND PASSWORD =" + "\'"+password + "\' "
         c.execute(statement)
         if c:
+            temp = 0
             for x in c:
-                print(x)
+                temp = x
+                print(temp[0])
                 return render(request, "DoctorHome.html", {'user': email})
         else:
             print("NOT FOUND")
