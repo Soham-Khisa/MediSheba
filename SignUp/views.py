@@ -14,8 +14,9 @@ def signupSubmit(request):
     phone = request.POST['phone']
     password = request.POST['pass']
     confirm = request.POST['cpass']
-
-    if usertype == 'doctor':
+    if password != confirm:
+        return render(request, "SignUp.html", {'error_message': "Passwords Doesn't Match"})
+    elif usertype == 'doctor':
         dsn_tns = cx_Oracle.makedsn('localhost', '1521', service_name='ORCL')
         conn = cx_Oracle.connect(user='MEDI_SHEBA', password='1234', dsn=dsn_tns)
         c = conn.cursor()
@@ -37,7 +38,8 @@ def signupSubmit(request):
             temp = x
         print(temp[0])
 
-        statement3 = "INSERT INTO MEDI_SHEBA.DOCTOR_AUTHENTICATION(DOCTOR_ID, EMAIL, PASSWORD) VALUES ("+ str(temp[0]) + "," \
+        statement3 = "INSERT INTO MEDI_SHEBA.DOCTOR_AUTHENTICATION(DOCTOR_ID, EMAIL, PASSWORD) VALUES (" + str(
+            temp[0]) + "," \
                      + "\'" + email + "\'," + "\'" + password + "\'" + ")"
         c2.execute(statement3)
         conn.commit()
