@@ -25,22 +25,22 @@ def submit(request):
     # TODO: connect database and verify
     if user == "Doctor":
         statement = "SELECT DOCTOR_ID from MEDI_SHEBA.DOCTOR_AUTHENTICATION WHERE EMAIL=" + "\'" + email + "\'" + \
-                    "AND PASSWORD =" + "\'"+password + "\' "
+                    "AND PASSWORD =" + "\'" + password + "\' "
         c.execute(statement)
         if c:
             temp = 0
             for x in c:
                 temp = x
-                print(temp[0])
+                print("DOCTOR ID:" + str(temp[0]))
                 return render(request, "DoctorHome.html", {'user': email})
         else:
-            print("NOT FOUND")
+            print("NOT FOUND")  # TODO: DEBUG NOT PRINTING
 
     elif user == "User":
         return render(request, "UserHome.html")
     elif user == "MediShopAdmin":
         return render(request, "PharmacyManagerHome.html")
-    elif user=="HospitalAdmin":
+    elif user == "HospitalAdmin":
         return render(request, "HospitalAdminHome.html")
     return render(request, "LogInOrSignUp.html")
 
