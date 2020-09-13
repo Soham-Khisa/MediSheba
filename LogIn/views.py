@@ -38,8 +38,6 @@ def submit(request):
 
     elif user == "User":
         return render(request, "UserHome.html")
-    elif user == "MediShopAdmin":
-        return render(request, "PharmacyManagerHome.html")
     elif user == "HospitalAdmin":
         return render(request, "HospitalAdminHome.html")
     return render(request, "LogInOrSignUp.html")

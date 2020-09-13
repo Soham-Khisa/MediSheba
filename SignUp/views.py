@@ -61,8 +61,5 @@ def signupSubmit(request):
     elif usertype == 'hospitalAdmin':
         return render(request, "HospitalAdminHome.html")
 
-    elif usertype == 'pharmacyManager':
-        return render(request, "PharmacyManagerHome.html")
-
     elif usertype == 'bloodbankAdmin':
         return render(request, "BloodbankAdminHome.html")
