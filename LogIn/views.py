@@ -24,7 +24,7 @@ def submit(request):
 
     # TODO: connect database and verify
     if user == "Doctor":
-        statement = "SELECT DOCTOR_ID from MEDI_SHEBA.DOCTOR_AUTHENTICATION WHERE EMAIL=" + "\'" + email + "\'" + \
+        statement = "SELECT DOCTOR_ID from MEDI_SHEBA.DOCTOR WHERE EMAIL=" + "\'" + email + "\'" + \
                     "AND PASSWORD =" + "\'" + password + "\' "
         c.execute(statement)
         if c:

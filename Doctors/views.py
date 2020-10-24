@@ -9,7 +9,7 @@ def doctors(request):
     c = conn.cursor()
     print(c)
     print('Success')
-    c.execute("SELECT * from MEDI_SHEBA.DOCTORS")
+    c.execute("SELECT * from MEDI_SHEBA.DOCTOR")
     out = ''
     for row in c:
         out += str(row) + ' \n '

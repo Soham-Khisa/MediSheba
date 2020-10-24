@@ -12,7 +12,7 @@ def seeDoc(request):
     dsn_tns = cx_Oracle.makedsn('localhost', '1521', service_name='ORCL')
     conn = cx_Oracle.connect(user='MEDI_SHEBA', password='1234', dsn=dsn_tns)
     c = conn.cursor()
-    c.execute("SELECT * from MEDI_SHEBA.DOCTORS")
+    c.execute("SELECT * from MEDI_SHEBA.DOCTOR")
 
     for row in c:
         docList.append(DoctorName(row[0], row[1], row[2], row[3]))
