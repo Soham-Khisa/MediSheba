@@ -8,7 +8,7 @@
       <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
       <jdbc-url>jdbc:oracle:thin:@localhost:1521:ORCL</jdbc-url>
     </data-source>
-    <data-source source="LOCAL" name="MEDI_SHEBA" uuid="af6561ee-1f6b-44a6-9345-c1c2f29a80c9">
+    <data-source source="LOCAL" name="MEDI_SHEBA" uuid="4201d891-43c3-4ca7-a1bb-d6441e08f3f2">
       <driver-ref>oracle</driver-ref>
       <synchronize>true</synchronize>
       <auto-commit>false</auto-commit>
