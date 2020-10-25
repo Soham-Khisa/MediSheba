@@ -44,4 +44,4 @@ def submit(request):
 
 
 def signup(request):
-    return render(request, "SignUp.html")
+    return render(request, "registration.html")
