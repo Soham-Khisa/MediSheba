@@ -13,4 +13,3 @@ class EncryptPasswords:
         encrypted = cipher_suit.encrypt(b_string)
         str_encrypted = encrypted.decode('utf-8')
         return str_encrypted
-

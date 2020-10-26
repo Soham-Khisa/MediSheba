@@ -20,6 +20,15 @@ def submit(request):
 
     dsn_tns = cx_Oracle.makedsn('localhost', '1521', service_name='ORCL')
     conn = cx_Oracle.connect(user='MEDI_SHEBA', password='1234', dsn=dsn_tns)
+
+    # shamim change here
+
+    # dsn_tns = cx_Oracle.makedsn('localhost', '1521', service_name='ORCL')
+    # conn = cx_Oracle.connect(user='MEDI_SHEBA', password='1234', dsn=dsn_tns)
+
+    #------#
+
+
     c = conn.cursor()
 
     # TODO: connect database and verify
@@ -44,4 +53,4 @@ def submit(request):
 
 
 def signup(request):
-    return render(request, "registration.html")
+    return render(request, "SignUp.html")

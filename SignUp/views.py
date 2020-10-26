@@ -14,18 +14,35 @@ def signupSubmit(request):
     phone = request.POST['phone']
     password = request.POST['pass']
     confirm = request.POST['cpass']
-    if password != confirm:
-        return render(request, "SignUp.html", {'error_message': "Passwords Doesn't Match"})
-    elif usertype == 'doctor':
+    gender_in = request.POST['Gender']
+
+    gender = ""
+    if gender_in == "male":
+        gender = "M"
+    else:
+        gender = "F"
+
+    '''
+    print("USER TYPE: " + usertype)
+    print("F NAME: " + firstname)
+    print("L NAME: " + lastname)
+    print("EMAIL: " + email)
+    print("PASS: " + password)
+    print("C PASS: " + confirm)
+    print("PHONE: " + phone)
+    print("GENDER: " + gender)
+    '''
+    if usertype == 'doctor':
+
         dsn_tns = cx_Oracle.makedsn('localhost', '1521', service_name='ORCL')
         conn = cx_Oracle.connect(user='MEDI_SHEBA', password='1234', dsn=dsn_tns)
         c = conn.cursor()
 
-        statement = "INSERT INTO MEDI_SHEBA.DOCTOR(FIRST_NAME, LAST_NAME, EMAIL, PHONE) VALUES (" + "\'" + firstname + \
-                    "\', " + "\'" + lastname + "\'," + "\'" + email + "\', " + "\'" + phone + "\'" + ")"
+        statement = "INSERT INTO MEDI_SHEBA.DOCTOR(FIRST_NAME, LAST_NAME, EMAIL, PHONE,PASSWORD, GENDER) VALUES (" + "\'" + firstname + \
+                    "\', " + "\'" + lastname + "\'," + "\'" + email + "\', " + "\'" + phone + "\', " + "\'" + password + "\', " + "\'" + gender + "\'" + ")"
         c.execute(statement)
         conn.commit()
-        # print("SUCCESS INSERTING INTO DOCTORS")
+        print("SUCCESS INSERTING INTO DOCTORS")
 
         return render(request, "DoctorHome.html")
 

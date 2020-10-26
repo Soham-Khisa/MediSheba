@@ -38,16 +38,20 @@
             <h1>Confirm Password:
             <label for="cpass"></label>
             <input type="password" id="cpass" name="cpass" class="block"></h1>
+            <h1>Gender:
+            <label for="Gender"></label>
+            <select id="Gender" name="Gender" class="block">
+                <option value="male" >Male</option>
+                <option value="female" >Female</option>
+            </select>
+            </h1><br>
+
+
             <h1>{{ error_message }}</h1>
             <br>
-            <input type="radio" id="male" name="gender" value="male" class="block">
-            <label for="male">Male</label><br>
-            <input type="radio" id="female" name="gender" value="female" class="block">
-            <label for="female">Female</label><br>
             <h1>
             <button class="block" type="submit">Submit</button>
             </h1>
         </form>
-
     </body>
 </html>
