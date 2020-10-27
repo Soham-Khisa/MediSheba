@@ -59,6 +59,8 @@ def signupSubmit(request):
         return render(request, "UserHome.html")
 
     elif usertype == 'hospitalAdmin':
+        dns_tns=cx_Oracle.makedsn('localhost','1521',service_name='ORCL')
+        conn=cx_Oracle.connect(user='MEDI_SHEBA',password='1234',dsn=dns_tns)
         return render(request, "HospitalAdminHome.html")
 
     elif usertype == 'bloodbankAdmin':
