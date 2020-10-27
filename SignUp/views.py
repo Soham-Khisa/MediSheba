@@ -15,7 +15,7 @@ def signupSubmit(request):
     password = request.POST['pass']
     confirm = request.POST['cpass']
     gender_in = request.POST['Gender']
-    hospital_Name=request.POST['company']
+    hospital_name = request.POST['company']
 
     gender = ""
     if gender_in == "male":
@@ -60,11 +60,14 @@ def signupSubmit(request):
         return render(request, "UserHome.html")
 
     elif usertype == 'hospitalAdmin':
-        dsn_tns=cx_Oracle.makedsn('localhost','1521',service_name='ORCL')
-        conn=cx_Oracle.connect(user='MEDI_SHEBA',password='1234',dsn=dsn_tns)
-        c=conn.cursor()
-        statement="INSERT INTO MEDI_SHEBA.HOSPITAL(HOSPITAL_NAME,FIRST_NAME, LAST_NAME, EMAIL,PASSWORD, PHONE) VALUES (" + "\'" + hospital_Name+"\'"+firstname + \
-                    "\', " + "\'" + lastname + "\'," + "\'" + email + "\', " + "\'" +password+"\'"+ phone + "\'" + ")"
+        dsn_tns = cx_Oracle.makedsn('localhost', '1521', service_name='ORCL')
+        conn = cx_Oracle.connect(user='MEDI_SHEBA', password='1234', dsn=dsn_tns)
+        c = conn.cursor()
+
+        statement = "INSERT INTO MEDI_SHEBA.HOSPITAL(HOSPITAL_NAME, FIRST_NAME, LAST_NAME, PASSWORD, GENDER, EMAIL, PHONE) VALUES" \
+                    " (" + "\'" + hospital_name + "\'," + "\'" + firstname + "\'," + "\'" + lastname + "\'," + "\'" + password + "\'," + "\'" + gender \
+                    + "\'," +"\'" + email + "\'," + "\'" + phone + "\'" + ")"
+
         c.execute(statement)
         conn.commit()
         return render(request, "HospitalAdminHome.html")
