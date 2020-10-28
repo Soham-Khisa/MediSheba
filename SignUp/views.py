@@ -45,7 +45,7 @@ def signupSubmit(request):
         conn.commit()
         print("SUCCESS INSERTING INTO DOCTORS")
 
-        return render(request, "DoctorHome.html")
+        return render(request, "homepage/DoctorHome.html")
 
     elif usertype == 'user':
         dsn_tns = cx_Oracle.makedsn('localhost', '1521', service_name='ORCL')
@@ -57,7 +57,7 @@ def signupSubmit(request):
         conn.commit()
         print(statement)
         print("SUCCESS INSERTING INTO USERS")
-        return render(request, "UserHome.html")
+        return render(request, "homepage/UserHome.html")
 
     elif usertype == 'hospitalAdmin':
         dsn_tns = cx_Oracle.makedsn('localhost', '1521', service_name='ORCL')
@@ -70,7 +70,7 @@ def signupSubmit(request):
 
         c.execute(statement)
         conn.commit()
-        return render(request, "HospitalAdminHome.html")
+        return render(request, "homepage/HospitalAdminHome.html")
 
     elif usertype == 'bloodbankAdmin':
-        return render(request, "BloodbankAdminHome.html")
+        return render(request, "homepage/BloodbankAdminHome.html")

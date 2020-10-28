@@ -6,7 +6,7 @@ import cx_Oracle
 # Create your views here.
 
 def login(request):
-    return render(request, "LogInOrSignUp.html")
+    return render(request, "auth/LogInOrSignUp.html")
 
 
 def submit(request):
@@ -41,16 +41,16 @@ def submit(request):
             for x in c:
                 temp = x
                 print("DOCTOR ID:" + str(temp[0]))
-                return render(request, "DoctorHome.html", {'user': email})
+                return render(request, "homepage/DoctorHome.html", {'user': email})
         else:
             print("NOT FOUND")  # TODO: DEBUG NOT PRINTING
 
     elif user == "User":
-        return render(request, "UserHome.html")
+        return render(request, "homepage/UserHome.html")
     elif user == "HospitalAdmin":
-        return render(request, "HospitalAdminHome.html")
-    return render(request, "LogInOrSignUp.html")
+        return render(request, "homepage/HospitalAdminHome.html")
+    return render(request, "auth/LogInOrSignUp.html")
 
 
 def signup(request):
-    return render(request, "SignUp.html")
+    return render(request, "auth/SignUp.html")
