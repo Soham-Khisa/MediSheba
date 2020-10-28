@@ -17,7 +17,7 @@
 <hr>
 <p>
 The ERD we are following:<br>
-<img src="External_Images/ERD.png">
+<img src="External_Images/MEDI_SHEBA_ERD.png">
 </p>
 <p>
 Group members:<br>
