@@ -2,6 +2,7 @@ import cx_Oracle
 from django.shortcuts import render
 import random
 from django.contrib import messages
+import HelperClasses.encryptPass as encoder
 
 
 # Create your views here.
@@ -12,10 +13,12 @@ def signupSubmit(request):
     lastname = request.POST['lname']
     email = request.POST['email']
     phone = request.POST['phone']
-    password = request.POST['pass']
-    confirm = request.POST['cpass']
+    password_in = request.POST['pass']
+    confirm_in = request.POST['cpass']
     gender_in = request.POST['Gender']
     hospital_name = request.POST['company']
+
+    password = encoder.EncryptPasswords(password_in).encryptPassword()
 
     gender = ""
     if gender_in == "male":
