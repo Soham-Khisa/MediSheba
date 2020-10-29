@@ -16,7 +16,8 @@ def signupSubmit(request):
     password_in = request.POST['pass']
     confirm_in = request.POST['cpass']
     gender_in = request.POST['Gender']
-    hospital_name = request.POST['company']
+    blood_bank_name=hospital_name = request.POST['company']
+
 
     password = encoder.EncryptPasswords(password_in).encryptPassword()
 
@@ -76,4 +77,15 @@ def signupSubmit(request):
         return render(request, "homepage/HospitalAdminHome.html")
 
     elif usertype == 'bloodbankAdmin':
+        dsn_tns = cx_Oracle.makedsn('localhost', '1521', service_name='ORCL')
+        conn = cx_Oracle.connect(user='MEDI_SHEBA', password='1234', dsn=dsn_tns)
+        c = conn.cursor()
+
+        statement = "INSERT INTO MEDI_SHEBA.BLOOD_BANK(NAME, FIRST_NAME, LAST_NAME, PASSWORD, GENDER, EMAIL, PHONE) VALUES" \
+                    " (" + "\'" + blood_bank_name + "\'," + "\'" + firstname + "\'," + "\'" + lastname + "\'," + "\'" + password + "\'," + "\'" + gender \
+                    + "\'," + "\'" + email + "\'," + "\'" + phone + "\'" + ")"
+
+
+        c.execute(statement)
+        conn.commit()
         return render(request, "homepage/BloodbankAdminHome.html")
