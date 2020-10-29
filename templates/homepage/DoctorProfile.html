@@ -1,4 +1,4 @@
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,65 +7,68 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="styles.css">
+     <link rel="stylesheet" href="{% static 'css/DoctorProfile.css' %}">
 </head>
 
 <!------ Include the above in your HEAD tag ---------->
 
 <body>
 
-    <div class="container rounded bg-white mt-5 mb-5">
-        <div class="row">
-            <div class="col-md-3 border-right">
-                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQF2psCzfbB611rnUhxgMi-lc2oB78ykqDGYb4v83xQ1pAbhPiB&usqp=CAU"><span class="font-weight-bold">MediSheba</span><span class="text-black-50">Join MediSheba, Manage appointments and keep track of your reports</span><span> </span></div>
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="{% static 'images/user.png' %}" width="128" height="128">
+                <span class="font-weight-bold">Change Profile Settings</span>
+                <span> </span>
             </div>
-            <div class="col-md-5 border-right">
-                <div class="p-3 py-5">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h4 class="text-right">Doctor Profile Settings</h4>
-                    </div>
-                    <div class="row mt-2">
-                        <div class="col-md-6"><label class="labels">First Name</label><input type="text" class="form-control" placeholder="first name" value=""></div>
-                        <div class="col-md-6"><label class="labels">Last Name</label><input type="text" class="form-control" value="" placeholder="last name"></div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-md-12"><label class="labels">PhoneNumber</label><input type="text" class="form-control" placeholder="enter phone number" value=""></div>
-                        <div class="col-md-12"><label class="labels" >Address</label>
-                            <select id="Address" name="Address" class="form-control">
-                                <option value="m" >M</option>
-                                <option value="f" >F</option>
-                            </select></div>
-                        <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="enter email id" value=""></div>
-                        <div class="col-md-12"><label class="labels">Blood Group</label>
-                            <select id="Blood" name="Blood" class="form-control">
-                                <option value="A+" >A+</option>
-                                <option value="A-" >A-</option>
-                                <option value="B+" >B+</option>
-                                <option value="B-" >B-</option>
-                                <option value="AB+" >AB+</option>
-                                <option value="AB-" >AB-</option>
-                                <option value="O+" >O+</option>
-                                <option value="O-" >O-</option>
-                            </select></div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-md-12"><label class="labels">Hospital</label><input type="text" class="form-control" placeholder="hospital" value=""></div>
-                        <div class="col-md-12"><label class="labels">Fees</label><input type="text" class="form-control" value="" placeholder="fees"></div>
-                    </div>
-                    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Doctor Profile Settings</h4>
                 </div>
+                <div class="row mt-2">
+                    <div class="col-md-6"><label class="labels">First Name</label><input type="text" class="form-control" placeholder="First Name" value=""></div>
+                    <div class="col-md-6"><label class="labels">Last Name</label><input type="text" class="form-control" value="" placeholder="Last Name"></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12"><label class="labels">Phone Number</label><input type="text" class="form-control" placeholder="Phone" value=""></div>
+                    <div class="col-md-12"><label class="labels" >Address</label>
+                        <select id="Address" name="Address" class="form-control">
+                            <option value="m" >M</option>
+                            <option value="f" >F</option>
+                        </select></div>
+                    <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="Email" value=""></div>
+                    <div class="col-md-12"><label class="labels">Blood Group</label>
+                        <select id="Blood" name="Blood" class="form-control">
+                            <option value="A+" >A+</option>
+                            <option value="A-" >A-</option>
+                            <option value="B+" >B+</option>
+                            <option value="B-" >B-</option>
+                            <option value="AB+" >AB+</option>
+                            <option value="AB-" >AB-</option>
+                            <option value="O+" >O+</option>
+                            <option value="O-" >O-</option>
+                        </select></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12"><label class="labels">Hospital</label><input type="text" class="form-control" placeholder="Hospital Name" value=""></div>
+                    <div class="col-md-12"><label class="labels">Fees</label><input type="text" class="form-control" value="" placeholder="Fees"></div>
+                </div>
+                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
             </div>
-            <div class="col-md-4">
-                <div class="p-3 py-5">
-                    <div class="d-flex justify-content-between align-items-center experience"><span>Edit Experience</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Experience</span></div><br>
-                    <div class="col-md-12"><label class="labels">Specialization</label><input type="text" class="form-control" placeholder="specialization" value=""></div> <br>
-                    <div class="col-md-12"><label class="labels">Additional Details</label><input type="text" class="form-control" placeholder="additional details" value=""></div>
-                </div>
+        </div>
+        <div class="col-md-4">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center experience"><span>Edit Experience</span><span class="border px-3 p-1 add-experience"><i class="fa fa-plus"></i>&nbsp;Experience</span></div><br>
+                <div class="col-md-12"><label class="labels">Specialization</label><input type="text" class="form-control" placeholder="specialization" value=""></div> <br>
+                <div class="col-md-12"><label class="labels">Additional Details</label><input type="text" class="form-control" placeholder="additional details" value=""></div>
             </div>
         </div>
     </div>
-    </div>
-    </div>
+</div>
+</div>
+</div>
 </body>
 
 </html>
