@@ -19,7 +19,8 @@ def doctors(request):
 '''
 
 
-def doctor_profile(request):
+def doctor_edit_profile(request):
+    district = ["Dhaka","Bogura","Rajshahi","Mymensingh"]
     return render(request, 'homepage/DoctorProfile.html')
 
 
