@@ -5,8 +5,10 @@ from django.db import models
 
 class DoctorName:
 
-    def __init__(self, id, first_name, last_name, phone):
+    def __init__(self, id, name, phone, gender, specialization, hospital_name):
         self.id = id
-        self.first_name = first_name
-        self.last_name = last_name
+        self.name = name
         self.phone = phone
+        self.gender = gender
+        self.specialization = specialization
+        self.hospital_name = hospital_name

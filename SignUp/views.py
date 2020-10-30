@@ -16,8 +16,7 @@ def signupSubmit(request):
     password_in = request.POST['pass']
     confirm_in = request.POST['cpass']
     gender_in = request.POST['Gender']
-    blood_bank_name=hospital_name = request.POST['company']
-
+    blood_bank_name = hospital_name = request.POST['company']
 
     password = encoder.EncryptPasswords(password_in).encryptPassword()
 
@@ -55,8 +54,8 @@ def signupSubmit(request):
         dsn_tns = cx_Oracle.makedsn('localhost', '1521', service_name='ORCL')
         conn = cx_Oracle.connect(user='MEDI_SHEBA', password='1234', dsn=dsn_tns)
         c = conn.cursor()
-        statement = "INSERT INTO MEDI_SHEBA.USERS(FIRST_NAME, LAST_NAME, EMAIL, PHONE) VALUES (" + "\'" + firstname + \
-                    "\', " + "\'" + lastname + "\'," + "\'" + email + "\', " + "\'" + phone + "\'" + ")"
+        statement = "INSERT INTO MEDI_SHEBA.USERS(FIRST_NAME, LAST_NAME, EMAIL, PHONE,PASSWORD, GENDER) VALUES (" + "\'" + firstname + \
+                    "\', " + "\'" + lastname + "\'," + "\'" + email + "\', " + "\'" + phone + "\', " + "\'" + password + "\', " + "\'" + gender + "\'" + ")"
         c.execute(statement)
         conn.commit()
         print(statement)
@@ -70,7 +69,7 @@ def signupSubmit(request):
 
         statement = "INSERT INTO MEDI_SHEBA.HOSPITAL(HOSPITAL_NAME, FIRST_NAME, LAST_NAME, PASSWORD, GENDER, EMAIL, PHONE) VALUES" \
                     " (" + "\'" + hospital_name + "\'," + "\'" + firstname + "\'," + "\'" + lastname + "\'," + "\'" + password + "\'," + "\'" + gender \
-                    + "\'," +"\'" + email + "\'," + "\'" + phone + "\'" + ")"
+                    + "\'," + "\'" + email + "\'," + "\'" + phone + "\'" + ")"
 
         c.execute(statement)
         conn.commit()
@@ -84,7 +83,6 @@ def signupSubmit(request):
         statement = "INSERT INTO MEDI_SHEBA.BLOOD_BANK(NAME, FIRST_NAME, LAST_NAME, PASSWORD, GENDER, EMAIL, PHONE) VALUES" \
                     " (" + "\'" + blood_bank_name + "\'," + "\'" + firstname + "\'," + "\'" + lastname + "\'," + "\'" + password + "\'," + "\'" + gender \
                     + "\'," + "\'" + email + "\'," + "\'" + phone + "\'" + ")"
-
 
         c.execute(statement)
         conn.commit()
