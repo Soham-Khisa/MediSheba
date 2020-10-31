@@ -2,11 +2,17 @@ import cx_Oracle
 from django.http import HttpResponse
 from django.shortcuts import render
 from .models import DoctorName
+from HelperClasses import json_extractor
 
 
 # Create your views here.
 
 def see_doctors(request):
+    location_names = json_extractor.JsonExtractor('name').extract("HelperClasses/zilla_names.json")
+    location_names.sort()
+
+    specialization = []
+
     docList = []
 
     dsn_tns = cx_Oracle.makedsn('localhost', '1521', service_name='ORCL')
@@ -20,4 +26,4 @@ def see_doctors(request):
         index = index + 1
     conn.close()
 
-    return render(request, "query_pages/doctor_query.html", {'doc': docList})
+    return render(request, "query_pages/doctor_query.html", {'doc': docList, 'opt': location_names,'specialization':specialization})

@@ -26,9 +26,9 @@
                 <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                     <select class="form-control search-slt" id="select_specialization">
                         <option selected disabled>Select specialization</option>
-                        <option>Neuro</option>
-                        <option>Eye</option>
-                        <option>Heart</option>
+                        {% for i in specialization %}
+                        <option>i</option>
+                        {% endfor %}
                     </select>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-12 p-0">
@@ -42,8 +42,9 @@
                 <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                     <select class="form-control search-slt" id="select_area">
                         <option selected disabled>Select Area</option>
-                        <option>Bogura</option>
-                        <option>Dhaka</option>
+                        {% for i in opt %}
+                        <option>{{ i }}</option>
+                        {% endfor %}
                     </select>
                 </div>
 

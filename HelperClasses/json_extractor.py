@@ -13,8 +13,3 @@ class JsonExtractor:
         for i in data:
             dicts.append(i[key_type])
         return dicts
-
-
-result = JsonExtractor('name').extract("zilla_names.json")
-
-print(result)
