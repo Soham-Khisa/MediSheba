@@ -20,12 +20,27 @@ def doctors(request):
 
 
 def doctor_edit_profile(request):
-    district = ["Dhaka","Bogura","Rajshahi","Mymensingh"]
     return render(request, 'homepage/DoctorProfile.html')
 
 
-def doctor_settings(request):
-    return HttpResponse("Settings")
+def search_options(request):
+    return HttpResponse("SEARCH HERE")
+
+
+def view_appointments(request):
+    return HttpResponse("Appointments Here")
+
+
+def blood_bank_appointment(request):
+    return HttpResponse("Blood Bank Appointment Here")
+
+
+def view_calender(request):
+    return HttpResponse("View Calender Here")
+
+
+def view_records(request):
+    return HttpResponse("view records")
 
 
 def logout(request):
