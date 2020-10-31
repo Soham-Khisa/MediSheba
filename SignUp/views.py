@@ -48,7 +48,7 @@ def signupSubmit(request):
         conn.commit()
         print("SUCCESS INSERTING INTO DOCTORS")
 
-        return render(request, "homepage/DoctorHome.html")
+        return render(request, "homepage/DoctorHome2.html")
 
     elif usertype == 'user':
         dsn_tns = cx_Oracle.makedsn('localhost', '1521', service_name='ORCL')

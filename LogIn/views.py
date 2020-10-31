@@ -46,7 +46,7 @@ def submit(request):
             decoded_password = decoder.EncryptPasswords(return_password).decryptPassword()
 
             if decoded_password == password:
-                return render(request, "homepage/DoctorHome.html")
+                return render(request, "homepage/DoctorHome2.html")
             else:
                 return HttpResponse("Wrong Pass")
         else:
