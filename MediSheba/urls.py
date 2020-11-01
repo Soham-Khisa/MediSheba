@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from Doctors import views as doctor_view
 from LogIn import views as login_view
+from Users import views as user_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -17,7 +18,9 @@ urlpatterns = [
     path('doctor/blood_bank_appointment', doctor_view.blood_bank_appointment, name='blood_bank_appointment'),
     path('doctor/view_calender', doctor_view.view_calender, name='view_calender'),
     path('doctor/view_records', doctor_view.view_records, name='view_records'),
-    path('doctor/change_schedule', doctor_view.change_schedule, name = 'change_schedule'),
-    path('doctor/logout', doctor_view.logout, name='log_out')
+    path('doctor/change_schedule', doctor_view.change_schedule, name='change_schedule'),
+    path('doctor/logout', doctor_view.logout, name='log_out'),
+
+    path('user/see_doctors', user_view.see_doctors, name='see_doctors')
 
 ]
