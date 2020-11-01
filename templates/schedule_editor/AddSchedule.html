@@ -1,14 +1,15 @@
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 
 <head>
+    <title>Change Your Schedule</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <link rel="stylesheet" href="AddSchedule.css">
+    <link rel="stylesheet" href="{% static 'css/AddSchedule.css' %}">
 </head>
 
 <!------ Include the above in your HEAD tag ---------->
@@ -105,9 +106,13 @@
                             <div class="col-md-4">
                                 <div class="form-group"  > <select class="form-control" required>
                                     <option value="" selected hidden>Day</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
+                                    <option>Saturday</option>
+                                    <option>Sunday</option>
+                                    <option>Monday</option>
+                                    <option>Tuesday</option>
+                                    <option>Wednesday</option>
+                                    <option>Thursday</option>
+                                    <option>Friday</option>
 
 
                                 </select> <span class="select-arrow"></span> <span class="form-label"></span> </div>

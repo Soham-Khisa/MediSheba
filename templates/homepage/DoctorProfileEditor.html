@@ -14,13 +14,14 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <body>
-
+<form action="submit_change_profile" method="post">
+    {% csrf_token %}
 <div class="container rounded bg-white mt-5 mb-5">
     <div class="row">
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="{% static 'images/user.png' %}" width="128" height="128">
                 <span class="font-weight-bold">Change Profile Settings</span>
-                <span> </span>
+                <span> Your Name </span>
             </div>
         </div>
         <div class="col-md-5 border-right">
@@ -34,10 +35,12 @@
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-12"><label class="labels">Phone Number</label><input type="text" class="form-control" placeholder="Phone" value=""></div>
-                    <div class="col-md-12"><label class="labels" >Address</label>
+                    <div class="col-md-12"><label class="labels" >Location</label>
                         <select id="Address" name="Address" class="form-control">
-                            <option value="m" >M</option>
-                            <option value="f" >F</option>
+                            <option selected disabled>Select Your District</option>
+                            {% for loc in locations %}
+                                <option>{{ loc }}</option>
+                            {% endfor %}
                         </select></div>
                     <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="Email" value=""></div>
                     <div class="col-md-12"><label class="labels">Blood Group</label>
@@ -50,13 +53,25 @@
                             <option value="AB-" >AB-</option>
                             <option value="O+" >O+</option>
                             <option value="O-" >O-</option>
-                        </select></div>
+                        </select>
+                    </div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">Hospital</label><input type="text" class="form-control" placeholder="Hospital Name" value=""></div>
+                    <div class="col-md-12"><label class="labels">Hospital Name</label>
+                        <select id ="Hospital" name="Hospital" class="form-control">
+                        <option selected disabled>Choose Hospital Name</option>
+                            {% for i in hospital_names %}
+                            <option>{{ i }}</option>
+                            {% endfor %}
+
+                        </select>
+                    </div>
                     <div class="col-md-12"><label class="labels">Fees</label><input type="text" class="form-control" value="" placeholder="Fees"></div>
                 </div>
-                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
+                <div class="row mt-3">
+                    <div class="col-md-12"><label class="labels">*Your Hospital must have an account in the website to appear in the list</label></div>
+                </div>
+                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Save Profile</button></div>
             </div>
         </div>
         <div class="col-md-4">
@@ -70,6 +85,7 @@
 </div>
 </div>
 </div>
+</form>
 </body>
 
 </html>

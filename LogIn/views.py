@@ -31,22 +31,26 @@ def submit(request):
     # ------#
 
     c = conn.cursor()
+    user_info = {}
 
     # TODO: connect database and verify
     if user == "Doctor":
-        statement = "SELECT DOCTOR_ID, PASSWORD from MEDI_SHEBA.DOCTOR WHERE EMAIL=" + "\'" + email + "\'"
+        statement = "SELECT DOCTOR_ID, PASSWORD, FIRST_NAME || ' ' || LAST_NAME from MEDI_SHEBA.DOCTOR WHERE EMAIL=" + "\'" + email + "\'"
         c.execute(statement)
         if c:
             x = c.fetchone()
             return_id = x[0]
             return_password = x[1]
-            # print(return_id)
-            # print(return_password)
+            return_name = x[2]
+
+            user_info['pk'] = return_id
+            user_info['name'] = return_name
+            user_info['email'] = email
 
             decoded_password = decoder.EncryptPasswords(return_password).decryptPassword()
 
             if decoded_password == password:
-                return render(request, "homepage/DoctorHome2.html")
+                return render(request, "homepage/DoctorHome2.html", {'name': return_name})
             else:
                 return HttpResponse("Wrong Pass")
         else:
@@ -59,8 +63,6 @@ def submit(request):
             x = c.fetchone()
             return_id = x[0]
             return_password = x[1]
-            # print(return_id)
-            # print(return_password)
 
             decoded_password = decoder.EncryptPasswords(return_password).decryptPassword()
 
@@ -78,8 +80,6 @@ def submit(request):
             x = c.fetchone()
             return_id = x[0]
             return_password = x[1]
-            # print(return_id)
-            # print(return_password)
 
             decoded_password = decoder.EncryptPasswords(return_password).decryptPassword()
 
@@ -97,8 +97,6 @@ def submit(request):
             x = c.fetchone()
             return_id = x[0]
             return_password = x[1]
-            # print(return_id)
-            # print(return_password)
 
             decoded_password = decoder.EncryptPasswords(return_password).decryptPassword()
 
